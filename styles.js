@@ -1,0 +1,16 @@
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: auto;
+    font-family: lato;
+    max-width: 35rem;
+    margin-bottom: 5rem;
+  }
+`;
