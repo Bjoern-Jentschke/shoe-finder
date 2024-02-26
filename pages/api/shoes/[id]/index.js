@@ -14,9 +14,9 @@ export default async function handler(request, response) {
     response.status(200).json(shoe);
   }
 
-  // if (request.method === "PUT") {
-  //   const { isFavorite, ...shoeData } = request.body;
-  //   await Shoe.findByIdAndUpdate(id, shoeData);
-  //   return response.status(200).json({ status: `Shoe ${id} updated` });
-  // }
+  if (request.method === "PUT") {
+    const { isFavorite, ...shoeData } = request.body;
+    await Shoe.findByIdAndUpdate(id, { ...shoeData, isFavorite });
+    return response.status(200).json({ status: `Shoe ${id} updated` });
+  }
 }

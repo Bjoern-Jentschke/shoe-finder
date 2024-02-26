@@ -6,6 +6,7 @@ import { useState } from "react";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function HomePage() {
+  // const [isFavorite, setIsFavorite] = useState(false);
   const { data, error, isLoading } = useSWR(`/api/shoes`, fetcher);
   const [FilterButtonClicked, setFilterButtonClicked] = useState(true);
   const [resetButtonClicked, setResetButtonClicked] = useState(false);
@@ -51,7 +52,20 @@ export default function HomePage() {
     return weightFilter && runTypeFilter && shoeTypeFilter;
   });
 
-  console.log(data);
+  // async function handleToggle(shoeId, currentIsFavorite) {
+  //   const updatedData = filteredData.map((shoe) =>
+  //     shoe._id === shoeId ? { ...shoe, isFavorite: !currentIsFavorite } : shoe
+  //   );
+  //   setIsFavorite(!currentIsFavorite);
+  //   const response = await fetch(`/api/shoes/${shoeId}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(updatedData.find((shoe) => shoe._id === shoeId)),
+  //   });
+  // }
+  // console.log(data);
 
   return (
     <StyledBodyDiv>
@@ -107,7 +121,13 @@ export default function HomePage() {
       {filteredData.map((shoe) => {
         return (
           <StyledList key={shoe._id}>
-            <Card name={shoe.name} brand={shoe.brand} id={shoe._id} />
+            <Card
+              // onToggle={handleToggle(shoe._id, shoe.isFavorite)}
+              name={shoe.name}
+              brand={shoe.brand}
+              id={shoe._id}
+              // isFavorite={isFavorite}
+            />
           </StyledList>
         );
       })}
