@@ -2,14 +2,27 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import FilledStar from "@/components/FilledStar";
+import Star from "@/components/Star";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function DetailsPage() {
+  const [isFavorite, setIsFavorite] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, isLoading, error } = useSWR(`/api/shoes/${id}`, fetcher);
+  const { data, isLoading, error, mutate } = useSWR(
+    `/api/shoes/${id}`,
+    fetcher
+  );
+
+  useEffect(() => {
+    if (data) {
+      setIsFavorite(data.isFavorite);
+    }
+  }, [data]);
 
   if (isLoading) {
     return <div>is loading...</div>;
@@ -32,6 +45,21 @@ export default function DetailsPage() {
     shoeType,
     weight,
   } = data;
+
+  async function handleToggle() {
+    const updatedData = { ...data, isFavorite: !isFavorite };
+    setIsFavorite(!isFavorite);
+    const response = await fetch(`/api/shoes/${_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    });
+    if (response.ok) {
+      mutate();
+    }
+  }
 
   return (
     <StyledBodyDiv>
@@ -61,6 +89,12 @@ export default function DetailsPage() {
           <StyledDetailList>
             <StyledSpan>💰price:</StyledSpan> <br />
             <SytledInformation>{price}</SytledInformation>
+          </StyledDetailList>
+          <StyledDetailList>
+            <StyledSpan></StyledSpan> <br />
+            <StyledFavoriteButton onClick={handleToggle}>
+              {isFavorite ? <FilledStar /> : <Star />}
+            </StyledFavoriteButton>
           </StyledDetailList>
         </StyledDetailUl>
       </StyledArticle>
@@ -123,4 +157,9 @@ const StyledSpan = styled.span`
 
 const SytledInformation = styled.span`
   font-size: 20px;
+`;
+
+const StyledFavoriteButton = styled.button`
+  background-color: transparent;
+  border: none;
 `;

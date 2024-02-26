@@ -1,10 +1,15 @@
 import Link from "next/link";
 import styled from "styled-components";
+import FilledStar from "../FilledStar";
+import Star from "../Star";
 
-export default function Card({ name, brand, id }) {
+export default function Card({ name, brand, id, onToggle, isFavorite }) {
   return (
     <StyledLink href={`shoes/${id}`}>
       <StyledArticle>
+        {/* <StyledFavoriteButton onClick={onToggle}>
+          {isFavorite ? <FilledStar /> : <Star />}
+        </StyledFavoriteButton> */}
         <StyledName>{name}</StyledName>
         <StyledBrand>{brand}</StyledBrand>
       </StyledArticle>
@@ -39,4 +44,9 @@ const StyledBrand = styled.p`
   font-size: 1rem;
   font-style: italic;
   margin: 0.5rem auto 1rem auto;
+`;
+
+const StyledFavoriteButton = styled.button`
+  background-color: transparent;
+  border: none;
 `;
