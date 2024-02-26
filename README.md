@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ShoeFinder App
 
-## Getting Started
+The ShoeFinder App is a simple  application developed as a part of my learning journey with technologies such as Node.js, MongoDB, React, JavaScript, HTML, and CSS. This project serves as a practical implementation to reinforce my understanding of these technologies, focusing on key concepts like CRUD operations with MongoDB and effective state management in a React application.
 
-First, run the development server:
+The goal of this app lies in assisting users to discover their ideal running shoe. Through a exploration, users can filter through different categories to find a shoe that perfectly aligns with their unique needs.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Also users can highlight favorites and look at them. They will also be able to add their thoughts as comments to their used shoes as well as rate their experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This application is in building process.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **User-Friendly Interface:** 
 
-## Learn More
+- **Randomized Data Sample:** The dataset was created by an AI for practicing purposes only.
 
-To learn more about Next.js, take a look at the following resources:
+- **MongoDB CRUD Operations:** The backend is powered by Node.js and MongoDB, showcasing the implementation of Create, Read, Update, and Delete (CRUD) operations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **React for Frontend:** The frontend is developed using React, demonstrating the use of components, styled-components, state management, and the creation of dynamic user interfaces.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Node.js:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **MongoDB:** 
+
+- **React:**
+
+- **JavaScript:**
+
+- **HTML & CSS:**
