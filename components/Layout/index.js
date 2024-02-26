@@ -1,6 +1,6 @@
 import Head from "next/head.js";
 import { Lato } from "next/font/google";
-import Navigation from "../Navigation/Navigation";
+import Navigation from "../Navigation";
 
 const lato = Lato({ subsets: ["latin"], weight: "400" });
 

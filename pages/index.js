@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Card from "@/components/Card/Card";
+import Card from "@/components/Card";
 import useSWR from "swr";
 import { useState } from "react";
 
@@ -7,7 +7,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function HomePage() {
   const { data, error, isLoading } = useSWR(`/api/shoes`, fetcher);
-  const [FilterButtonClicked, setFilterButtonClicked] = useState(false);
+  const [FilterButtonClicked, setFilterButtonClicked] = useState(true);
   const [resetButtonClicked, setResetButtonClicked] = useState(false);
   const [filterByWeight, setFilterByWeight] = useState("all");
   const [filterByRunType, setFilterByRunType] = useState("all");
@@ -65,9 +65,9 @@ export default function HomePage() {
         <StyledButton onClick={handleFilterButtonClick}>Filter</StyledButton>
         <StyledButton onClick={handleResetButtonClick}>Reset</StyledButton>
       </StyledButtonDiv>
-      <article style={{ display: FilterButtonClicked ? "none" : "grid" }}>
+      <article style={{ display: FilterButtonClicked ? "none" : "flex" }}>
         <StyledDropdown>
-          <label>Weight:</label>
+          <label>Weight</label>
           <select
             onChange={(e) => setFilterByWeight(e.target.value)}
             value={filterByWeight}
@@ -80,7 +80,7 @@ export default function HomePage() {
 
         {/* Dropdown for Run Type */}
         <StyledDropdown>
-          <label>Run Type:</label>
+          <label>Run Type</label>
           <select
             onChange={(e) => setFilterByRunType(e.target.value)}
             value={filterByRunType}
@@ -93,7 +93,7 @@ export default function HomePage() {
 
         {/* Dropdown for Shoe Type */}
         <StyledDropdown>
-          <label>Shoe Type:</label>
+          <label>Shoe Type</label>
           <select
             onChange={(e) => setFilterByShoeType(e.target.value)}
             value={filterByShoeType}
@@ -147,13 +147,18 @@ const StyledList = styled.li`
 
 const StyledDropdown = styled.div`
   margin: 10px;
+  margin-bottom: 3rem;
 
   label {
     margin-right: 5px;
+    color: salmon;
   }
 
   select {
-    padding: 5px;
+    padding: 0.6rem;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
   }
 `;
 

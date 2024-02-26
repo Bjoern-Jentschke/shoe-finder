@@ -16,8 +16,8 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: salmon; /* Dark background color */
-  color: white; /* Text color */
+  background-color: salmon;
+  color: white;
   position: fixed;
   margin: auto;
   bottom: 0;

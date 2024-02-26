@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import Card from "@/components/Card/Card";
 import useSWR from "swr";
 import Image from "next/image";
 

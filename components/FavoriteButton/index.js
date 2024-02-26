@@ -1,27 +1,24 @@
-import FilledStar from "../Favorite/FilledStar";
-import Star from "../Favorite/Star";
+// import FilledStar from "../FilledStar";
+// import styled from "styled-components";
+// import Star from "../Star";
 
-export default function FavoriteButton({}) {
-  return (
-    <button
-      className="favorite-button"
-      onClick={() => onToggleFavorite(id)}
-      aria-label="favorite"
-    >
-      {isFavorite ? <FilledStar /> : <Star />}
-    </button>
-  );
-}
+// export default function FavoriteButton({ onToggle }) {
+//   return (
+//     <StyledButton aria-label="favorite" onClick={onToggle()}>
+//       {isFavorite ? <FilledStar /> : <Star />}
+//     </StyledButton>
+//   );
+// }
 
-StyledButton = styled.button`
-  appearance: none;
-  background: none;
-  border: none;
-  padding: 0;
-  border-radius: 999px;
-  aspect-ratio: 1;
-  transition: background-color 0.2s ease-in-out;
-  background-color: transparent;
-  margin: -6px;
-  padding: 6px;
-`;
+// const StyledButton = styled.button`
+//   appearance: none;
+//   background: none;
+//   border: none;
+//   padding: 0;
+//   border-radius: 999px;
+//   aspect-ratio: 1;
+//   transition: background-color 0.2s ease-in-out;
+//   background-color: transparent;
+//   margin: -6px;
+//   padding: 6px;
+// `;
